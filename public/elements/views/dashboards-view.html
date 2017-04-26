@@ -70,6 +70,7 @@
     	  editing:{
     		  type:Object,
     		  reflectToAttribute:true,
+    		  value:[],
     		  notify:true
     	  }, counter:{
     		  type:Number,
@@ -87,16 +88,16 @@
     },
 
      _add: function(e) {
-        this.editing=[
-        	{
+        
+    	 /* this.editing=[{
         	    "img" :{
         	       "thumbnail":this.data[this.counter].img.thumbnail
         	    },
         	    "ItemScanned": this.data[this.counter].ItemScanned,
         		"Temperature": this.data[this.counter].Temperature,
         		"Humidity":this.data[this.counter].Humidity
-        		
-        	}]; 
+        			}];  */
+        	//this.editing.push(row);
         //this.editing.push({img.thumbnail:this.data[this.counter].img.thumbnail,ItemScanned:this.data[this.counter].ItemScanned,Temperature:this.data[this.counter].Temperature,Humidity:this.data[this.counter].Humidity});
       /*  console.log(this.data[0].Color);
        this.editing[0].Color=this.data[0].Color;
@@ -104,12 +105,23 @@
        /*  this.editing[this.counter].img.thumbnail=this.data[this.counter].img.thumbnail;
     		this.editing[this.counter].Color=this.data[this.counter].Color;
     		this.editing[this.counter].ColorValue=this.data[this.counter].ColorValue;  */
-       console.log(this.counter++);
+      /*  this.counter++;
     		if(this.counter==4)
     			{
     			this.counter=0;
-    			}
+    			} */
+    		this.push('editing',{
+        	    "img" :{
+        	       "thumbnail":this.data[this.counter].img.thumbnail
+        	    },
+        	    "ItemScanned": this.data[this.counter].ItemScanned,
+        		"Temperature": this.data[this.counter].Temperature,
+        		"Humidity":this.data[this.counter].Humidity
+        			});
+    		console.log(this.editing);
+    		console.log(this.data);
     		
+        	this.counter++;	
     		document.getElementById('loader').style.display = "block";
     		this.updateData();
     		

@@ -27,10 +27,18 @@
 	},
 	{
 	    "img" :{
-	       "thumbnail":"../../elements/views/Images/b1.png"
+	       "thumbnail":"../../elements/views/Images/b4.png"
 	    },
 	    "ItemScanned": "Fruti",
 		"Temperature": "23",
+		"Humidity":"44"
+	},
+	{
+	    "img" :{
+	       "thumbnail":"../../elements/views/Images/b5.png"
+	    },
+	    "ItemScanned": "Lassi",
+		"Temperature": "24",
 		"Humidity":"44"
 	}
 

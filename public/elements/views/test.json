@@ -1,0 +1,37 @@
+
+[
+
+	{
+	    "img" :{
+	       "thumbnail":"../../elements/views/Images/b1.png"
+	    },
+	    "ItemScanned": "Mirinda",
+		"Temperature": "25",
+		"Humidity":"45"
+	},
+	{
+	    "img" :{
+	       "thumbnail":"../../elements/views/Images/b2.png"
+	    },
+	    "ItemScanned": "Fanta",
+		"Temperature": "24",
+		"Humidity":"47"
+	},
+	{
+	    "img" :{
+	       "thumbnail":"../../elements/views/Images/b3.png"
+	    },
+	    "ItemScanned": "Mazza",
+		"Temperature": "25",
+		"Humidity":"42"
+	},
+	{
+	    "img" :{
+	       "thumbnail":"../../elements/views/Images/b1.png"
+	    },
+	    "ItemScanned": "Fruti",
+		"Temperature": "23",
+		"Humidity":"44"
+	}
+
+]

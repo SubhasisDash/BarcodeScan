@@ -1,0 +1,101 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<script src="../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+<dom-module id="dashboards-view">
+  <template is="dom-bind">
+
+   <style>
+      paper-button {
+        margin-bottom: 20px;
+      }
+    </style>
+   <paper-button raised on-tap="_add">Scan Barcode</paper-button>  
+
+    <!-- contextIronAjax used to load data from local Predix Asset API -->
+    <iron-ajax  auto url="../../elements/views/test.json"
+      handle-as="json"
+      last-response="{{data}}" on-response="_add">
+    </iron-ajax>
+
+<vaadin-grid items="{{editing}}">
+	
+	<vaadin-grid-column resizable>
+          <template class="header">BarcodeImage</template>
+          <template is="dom-repeat">
+            <div>
+              <img class="image" style="height:80px;" src="{{item.img.thumbnail}}">
+            </div>
+          </template>
+    </vaadin-grid-column>
+	<vaadin-grid-column>
+        <template class="header">ItemScanned</template>
+        <template>{{item.ItemScanned}}</template>
+      </vaadin-grid-column>
+      <vaadin-grid-column>
+        <template class="header">Temperature</template>
+        <template>{{item.Temperature}}</template>
+      </vaadin-grid-column>
+      <vaadin-grid-column>
+        <template class="header">Humidity</template>
+        <template>{{item.Humidity}}</template>
+      </vaadin-grid-column>
+   
+	</vaadin-grid>
+
+  </template>
+  <script>
+    Polymer({
+
+      is: 'dashboards-view',
+
+      properties: {
+    	  editing:{
+    		  type:Object,
+    		  reflectToAttribute:true,
+    		  notify:true
+    	  }, counter:{
+    		  type:Number,
+    		  value:'0',
+    		  reflectToAttribute:true,
+    		  notify:true
+    	  }
+    	  
+      },
+    
+    ready :function(){
+    	console.log("table ready");
+    	
+    },
+
+     _add: function(e) {
+        this.editing=[
+        	{
+        	    "img" :{
+        	       "thumbnail":this.data[this.counter].img.thumbnail
+        	    },
+        	    "ItemScanned": this.data[this.counter].ItemScanned,
+        		"Temperature": this.data[this.counter].Temperature,
+        		"Humidity":this.data[this.counter].Humidity
+        	}]; 
+        //this.editing.push({img.thumbnail:this.data[this.counter].img.thumbnail,ItemScanned:this.data[this.counter].ItemScanned,Temperature:this.data[this.counter].Temperature,Humidity:this.data[this.counter].Humidity});
+      /*  console.log(this.data[0].Color);
+       this.editing[0].Color=this.data[0].Color;
+       console.log( this.editing[0].Color); */
+       /*  this.editing[this.counter].img.thumbnail=this.data[this.counter].img.thumbnail;
+    		this.editing[this.counter].Color=this.data[this.counter].Color;
+    		this.editing[this.counter].ColorValue=this.data[this.counter].ColorValue;  */
+       console.log(this.counter++);
+    		if(this.counter==4)
+    			{
+    			this.counter=0;
+    			}
+     }
+ });
+  </script>
+  
+</dom-module>

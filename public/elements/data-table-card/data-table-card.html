@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html" />
+<link rel="import" href="../../bower_components/px-card/px-card.html" />
+<link rel="import" href="../../bower_components/vaadin-grid/vaadin-grid.html"/>
+<dom-module id="data-table-card">
+  <template>
+     <iron-ajax
+        id="dataTableDataIronAjax"
+        url="[[_ajaxURL]]"
+        last-response="{{_ajaxData}}"
+        auto>
+      </iron-ajax>
+  
+  
+  
+  </template>
+</dom-module>
+<script>
+  Polymer({
+
+    is: 'data-table-card',
+
+    properties: {
+      
+
+  });
+</script>
